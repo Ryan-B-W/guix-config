@@ -11,10 +11,11 @@
 ;; used in this configuration.
 (use-modules (gnu)
              (gnu packages package-management)
+             (gnu packages security-token)
              (guix channels)
              (nongnu packages linux)
              (nongnu system linux-initrd))
-(use-service-modules cups desktop networking ssh xorg sddm)
+(use-service-modules cups desktop networking ssh xorg sddm security-token)
 
 (define my-channels
   (append
@@ -43,7 +44,7 @@
                  (comment "Brody")
                  (group "users")
                  (home-directory "/home/brody")
-                 (supplementary-groups '("wheel" "netdev" "audio" "video")))
+                 (supplementary-groups '("wheel" "netdev" "audio" "video" "plugdev")))
                 %base-user-accounts))
 
   ;; Packages installed system-wide.  Users can also install packages
@@ -57,6 +58,9 @@
   (services
    (append (list (service sddm-service-type)
 	         (service xfce-desktop-service-type)
+		 (udev-rules-service 'fido2 libfido2 #:groups '("plugdev"))
+		 (udev-rules-service 'yubikey yubikey-personalization)
+		 (service pcscd-service-type)
                  ;; To configure OpenSSH, pass an 'openssh-configuration'
                  ;; record as a second argument to 'service' below.
                  (service openssh-service-type)

@@ -5,6 +5,7 @@
   #:use-module (gnu home)
   #:use-module (gnu home services)
   #:use-module (gnu home services shells)
+  #:use-module (gnu home services gnupg)
   #:use-module (gnu services)
   #:use-module (gnu services security-token)
   #:use-module (gnu packages polkit)
@@ -25,7 +26,12 @@
 
           (service home-xdg-configuration-files-service-type
            `(("gdb/gdbinit" ,%default-gdbinit)
-             ("nano/nanorc" ,%default-nanorc))))
+             ("nano/nanorc" ,%default-nanorc)))
+
+	  (service home-gpg-agent-service-type
+		   (home-gpg-agent-configuration
+		    (ssh-support? #t)
+		    (extra-content "allow-emacs-pinentry\nallow-loopback-pinentry\nwrite-env-file\nuse-standard-socket"))))
 
         %base-home-services))))
 

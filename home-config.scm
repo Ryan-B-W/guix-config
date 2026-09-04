@@ -25,9 +25,7 @@
 
           (service home-xdg-configuration-files-service-type
            `(("gdb/gdbinit" ,%default-gdbinit)
-             ("nano/nanorc" ,%default-nanorc)))
-
-	  (service pcscd-service-type))
+             ("nano/nanorc" ,%default-nanorc))))
 
         %base-home-services))))
 

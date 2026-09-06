@@ -12,10 +12,11 @@
 (use-modules (gnu)
              (gnu packages package-management)
              (gnu packages security-token)
+             (gnu packages wordnet)
              (guix channels)
              (nongnu packages linux)
              (nongnu system linux-initrd))
-(use-service-modules cups desktop networking ssh xorg sddm security-token)
+(use-service-modules cups desktop networking ssh xorg sddm security-token dict)
 
 (define my-channels
   (append
@@ -50,7 +51,7 @@
   ;; Packages installed system-wide.  Users can also install packages
   ;; under their own account: use 'guix search KEYWORD' to search
   ;; for packages and 'guix install PACKAGE' to install a package.
-  (packages (append (map specification->package (list "stumpwm" "xfce" "sddm" "btop" "tmux" "ncdu" "python" "vim-full" "neovim" "emacs"))
+  (packages (append (map specification->package (list "stumpwm" "xfce" "sddm" "btop" "tmux" "ncdu" "python" "vim-full" "neovim" "emacs" "font-aporetic" "font-iosevka" "font-google-noto" "font-awesome-nonfree" "font-liberation" "font-terminus" "font-dejavu" "font-fira-code" "font-fira-mono" "font-fira-sans" "font-adobe-source-code-pro" "font-adobe-source-sans" "font-nerd-symbols" "dictd" "gcide" "vera" "wordnet" "freedict-dictionaries" "hunspell" "hunspell-dict-en" "hunspell-dict-en-us"))
                     %base-packages))
 
   ;; Below is the list of system services.  To search for available
@@ -67,7 +68,18 @@
                  (service cups-service-type)
                  (set-xorg-configuration
                   (xorg-configuration (keyboard-layout keyboard-layout))
-                  sddm-service-type))
+                  sddm-service-type)
+                 (service dicod-service-type
+                          (dicod-configuration
+                           (handlers (list (dicod-handler
+                                            (name "wordnet")
+                                            (module "wordnet")
+                                            (options (list #~(string-append "wnhome=" #$wordnet))))))
+                           (databases (cons* (dicod-database (name "wordnet")
+                                                             (complex? #t)
+                                                             (handler "wordnet"))
+                                             %dicod-database:gcide
+                                             (map dicod-freedict-database (list "eng-deu" "deu-eng" "eng-spa" "spa-eng")))))))
            (modify-services %desktop-services
                             (delete gdm-service-type)
                             (guix-service-type

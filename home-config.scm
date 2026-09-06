@@ -28,10 +28,10 @@
            `(("gdb/gdbinit" ,%default-gdbinit)
              ("nano/nanorc" ,%default-nanorc)))
 
-	  (service home-gpg-agent-service-type
-		   (home-gpg-agent-configuration
-		    (ssh-support? #t)
-		    (extra-content "allow-emacs-pinentry\nallow-loopback-pinentry\nwrite-env-file\nuse-standard-socket"))))
+          (service home-gpg-agent-service-type
+                   (home-gpg-agent-configuration
+                    (ssh-support? #t)
+                    (extra-content "allow-emacs-pinentry\nallow-loopback-pinentry\nwrite-env-file\nuse-standard-socket"))))
 
         %base-home-services))))
 

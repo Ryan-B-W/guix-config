@@ -57,34 +57,34 @@
   ;; services, run 'guix system search KEYWORD' in a terminal.
   (services
    (append (list (service sddm-service-type)
-	         (service xfce-desktop-service-type)
-		 (udev-rules-service 'fido2 libfido2 #:groups '("plugdev"))
-		 (udev-rules-service 'yubikey yubikey-personalization)
-		 (service pcscd-service-type)
+                 (service xfce-desktop-service-type)
+                 (udev-rules-service 'fido2 libfido2 #:groups '("plugdev"))
+                 (udev-rules-service 'yubikey yubikey-personalization)
+                 (service pcscd-service-type)
                  ;; To configure OpenSSH, pass an 'openssh-configuration'
                  ;; record as a second argument to 'service' below.
                  (service openssh-service-type)
                  (service cups-service-type)
                  (set-xorg-configuration
-		  (xorg-configuration (keyboard-layout keyboard-layout))
-		  sddm-service-type))
+                  (xorg-configuration (keyboard-layout keyboard-layout))
+                  sddm-service-type))
            (modify-services %desktop-services
-			    (delete gdm-service-type)
-			    (guix-service-type
-			     config => (guix-configuration
-					(inherit config)
-					(substitute-urls
-					 (append (list "https://substitutes.nonguix.org"
+                            (delete gdm-service-type)
+                            (guix-service-type
+                             config => (guix-configuration
+                                        (inherit config)
+                                        (substitute-urls
+                                         (append (list "https://substitutes.nonguix.org"
                                                        "https://nonguix-proxy.digital.xyz"
                                                        "https://cache-cdn.guix.moe"
                                                        "https://cache-sg.guix.moe"
                                                        "https://guix.tobias.gr")
-						 %default-substitute-urls))
-					(authorized-keys
-					 (append (list (local-file "/etc/guix/nonguix-signing-key.pub"))
-						 %default-authorized-guix-keys))
-					(channels my-channels)
-					(guix (guix-for-channels my-channels)))))))
+                                                 %default-substitute-urls))
+                                        (authorized-keys
+                                         (append (list (local-file "/etc/guix/nonguix-signing-key.pub"))
+                                                 %default-authorized-guix-keys))
+                                        (channels my-channels)
+                                        (guix (guix-for-channels my-channels)))))))
            ;; This is the default list of services we
            ;; are appending to.
            ;%desktop-services))

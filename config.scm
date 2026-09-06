@@ -86,11 +86,14 @@
                              config => (guix-configuration
                                         (inherit config)
                                         (substitute-urls
-                                         (append (list "https://substitutes.nonguix.org"
-                                                       "https://nonguix-proxy.digital.xyz"
-                                                       "https://cache-cdn.guix.moe"
-                                                       "https://cache-sg.guix.moe"
-                                                       "https://guix.tobias.gr")
+                                         (append (list
+                                                  ;; NonGuix and community servers.
+                                                  "https://substitutes.nonguix.org"
+                                                  "https://nonguix-proxy.digital.xyz"
+                                                  "https://cache-cdn.guix.moe"
+                                                  "https://cache-sg.guix.moe"
+                                                  "https://guix.tobias.gr")
+                                                 ;; Default Guix official servers, "https://bordeaux.guix.gnu.org" and "https://ci.guix.gnu.org".
                                                  %default-substitute-urls))
                                         (authorized-keys
                                          (append (list (local-file "/etc/guix/nonguix-signing-key.pub"))

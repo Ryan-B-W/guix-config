@@ -6,6 +6,7 @@
   #:use-module (gnu home services)
   #:use-module (gnu home services shells)
   #:use-module (gnu home services gnupg)
+  #:use-module (gnu home services desktop)
   #:use-module (gnu services)
   #:use-module (gnu services security-token)
   #:use-module (gnu packages polkit)
@@ -19,6 +20,8 @@
           ;; Uncomment the shell you wish to use for your user:
           (service home-bash-service-type)
           ;(service home-zsh-service-type)
+
+          (service home-dbus-service-type)
 
           (service home-files-service-type
            `((".guile" ,%default-dotguile)

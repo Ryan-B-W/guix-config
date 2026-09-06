@@ -17,9 +17,7 @@
     (services
       (append
         (list
-          ;; Uncomment the shell you wish to use for your user:
           (service home-bash-service-type)
-          ;(service home-zsh-service-type)
 
           (service home-dbus-service-type)
 

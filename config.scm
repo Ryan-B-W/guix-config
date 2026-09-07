@@ -52,6 +52,11 @@
   ;; under their own account: use 'guix search KEYWORD' to search
   ;; for packages and 'guix install PACKAGE' to install a package.
   (packages (append (map specification->package (list
+                                                 ;; Acceleration hardware.
+                                                 "mesa" "mesa-utils" "vulkan-loader" "vulkan-tools" "spirv-tools" "glslang"
+                                                 "xf86-video-amdgpu" "amdgpu-firmware"
+                                                 ;; Audio/video.
+                                                 "libva-utils" "vdpauinfo"
                                                  ;; Desktop environments, window managers, and display managers.
                                                  "stumpwm" "xfce" "sddm"
                                                  ;; Desktop utilities.

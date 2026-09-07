@@ -57,6 +57,8 @@
                                                  "xf86-video-amdgpu" "amdgpu-firmware"
                                                  ;; Audio/video.
                                                  "libva-utils" "vdpauinfo"
+                                                 "pipewire" "wireplumber"
+                                                 "qpwgraph" "easyeffects"
                                                  ;; Desktop environments, window managers, and display managers.
                                                  "stumpwm" "xfce" "sddm"
                                                  ;; Desktop utilities.
@@ -106,6 +108,7 @@
                                              (map dicod-freedict-database (list "eng-deu" "deu-eng" "eng-spa" "spa-eng")))))))
            (modify-services %desktop-services
                             (delete gdm-service-type)
+                            (delete pulseaudio-service-type)
                             (guix-service-type
                              config => (guix-configuration
                                         (inherit config)

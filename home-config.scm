@@ -20,6 +20,7 @@
           (service home-bash-service-type)
 
           (service home-dbus-service-type)
+          (service home-pipewire-service-type)
 
           (service home-files-service-type
            `((".guile" ,%default-dotguile)

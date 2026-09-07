@@ -66,6 +66,7 @@
                                                  "bemenu" "mako" "wayvnc" "waypipe" "kanshi" "wl-clipboard" "slurp" "grim" "grimshot"
                                                  "swaybg" "waybar" "swaylock" "swayidle" "wlroots" "wlr-randr"
                                                  "tigervnc-client" "tigervnc-server" "x11vnc" "freerdp"
+                                                 "xtrlock" "xclip" ; "password-store" "pass-otp"
                                                  ;; Shell utilities.
                                                  "kitty" "rxvt-unicode" "xterm" "libvterm"
                                                  "btop" "tmux" "ncdu" "fastfetch"

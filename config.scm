@@ -60,7 +60,7 @@
                                                  "pipewire" "wireplumber"
                                                  "qpwgraph" "easyeffects"
                                                  ;; Desktop environments, window managers, and display managers.
-                                                 "stumpwm" "sway" "xfce" "sddm"
+                                                 "stumpwm" "sway" "xfce" "sddm" "picom"
                                                  ;; Desktop utilities.
                                                  "xdg-utils" "xdg-user-dirs" "xdg-dbus-proxy" "xdg-desktop-portal" "xdg-desktop-portal-gtk" "xdg-desktop-portal-wlr" "xdg-desktop-portal-lxqt" "xdg-desktop-portal-kde"
                                                  "bemenu" "mako" "wayvnc" "waypipe" "kanshi" "wl-clipboard" "slurp" "grim" "grimshot"

@@ -51,7 +51,20 @@
   ;; Packages installed system-wide.  Users can also install packages
   ;; under their own account: use 'guix search KEYWORD' to search
   ;; for packages and 'guix install PACKAGE' to install a package.
-  (packages (append (map specification->package (list "stumpwm" "xfce" "sddm" "btop" "tmux" "ncdu" "python" "vim-full" "neovim" "emacs" "font-aporetic" "font-iosevka" "font-google-noto" "font-awesome-nonfree" "font-liberation" "font-terminus" "font-dejavu" "font-fira-code" "font-fira-mono" "font-fira-sans" "font-adobe-source-code-pro" "font-adobe-source-sans" "font-nerd-symbols" "dictd" "gcide" "vera" "wordnet" "freedict-dictionaries" "hunspell" "hunspell-dict-en" "hunspell-dict-en-us"))
+  (packages (append (map specification->package (list
+                                                 ;; Desktop environments, window managers, and display managers.
+                                                 "stumpwm" "xfce" "sddm"
+                                                 ;; Desktop utilities.
+                                                 ;; Shell utilities.
+                                                 "btop" "tmux" "ncdu"
+                                                 ;; Editors.
+                                                 "emacs" "vim-full" "neovim"
+                                                 ;; Programming languages.
+                                                 "python"
+                                                 ;; Fonts.
+                                                 "font-aporetic" "font-iosevka" "font-google-noto" "font-awesome-nonfree" "font-liberation" "font-terminus" "font-dejavu" "font-fira-code" "font-fira-mono" "font-fira-sans" "font-adobe-source-code-pro" "font-adobe-source-sans" "font-nerd-symbols"
+                                                 ;; Dictionaries and spellcheckers.
+                                                 "dictd" "gcide" "vera" "wordnet" "freedict-dictionaries" "hunspell" "hunspell-dict-en" "hunspell-dict-en-us"))
                     %base-packages))
 
   ;; Below is the list of system services.  To search for available

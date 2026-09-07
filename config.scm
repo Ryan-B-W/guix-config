@@ -73,6 +73,8 @@
   (services
    (append (list (service sddm-service-type)
                  (service xfce-desktop-service-type)
+                 (service gvfs-service-type)
+                 (service udisks-service-type)
                  (udev-rules-service 'fido2 libfido2 #:groups '("plugdev"))
                  (udev-rules-service 'yubikey yubikey-personalization)
                  (service pcscd-service-type)

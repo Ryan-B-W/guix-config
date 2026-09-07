@@ -57,7 +57,9 @@
                                                  ;; Desktop utilities.
                                                  "xdg-utils" "xdg-user-dirs" "xdg-dbus-proxy" "xdg-desktop-portal" "xdg-desktop-portal-gtk" "xdg-desktop-portal-wlr" "xdg-desktop-portal-lxqt" "xdg-desktop-portal-kde"
                                                  ;; Shell utilities.
-                                                 "btop" "tmux" "ncdu"
+                                                 "kitty" "rxvt-unicode" "xterm" "libvterm"
+                                                 "btop" "tmux" "ncdu" "fastfetch"
+                                                 "openssh" "mosh"
                                                  ;; Editors.
                                                  "emacs" "vim-full" "neovim"
                                                  ;; Programming languages.

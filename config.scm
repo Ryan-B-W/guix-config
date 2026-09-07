@@ -69,12 +69,12 @@
                                                  "xtrlock" "xclip" ; "password-store" "pass-otp"
                                                  ;; Shell utilities.
                                                  "kitty" "rxvt-unicode" "xterm" "libvterm"
-                                                 "btop" "tmux" "ncdu" "fastfetch"
+                                                 "btop" "tmux" "ncdu" "fastfetch" "git"
                                                  "openssh" "mosh"
                                                  ;; Editors.
                                                  "emacs" "vim-full" "neovim"
                                                  ;; Programming languages.
-                                                 "python"
+                                                 "gcc-toolchain" "clang-toolchain" "guile" "bash" "sbcl" "python"
                                                  ;; Fonts.
                                                  "font-aporetic" "font-iosevka" "font-google-noto" "font-google-noto-emoji" "font-google-noto-sans-cjk" "font-google-noto-sans-hebrew" "font-google-noto-serif-cjk" "font-google-noto-serif-hebrew" "font-awesome-nonfree" "font-liberation" "font-terminus" "font-dejavu" "font-fira-code" "font-fira-mono" "font-fira-sans" "font-adobe-source-code-pro" "font-adobe-source-sans" "font-nerd-symbols"
                                                  ;; Dictionaries and spellcheckers.

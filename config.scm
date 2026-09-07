@@ -55,6 +55,7 @@
                                                  ;; Desktop environments, window managers, and display managers.
                                                  "stumpwm" "xfce" "sddm"
                                                  ;; Desktop utilities.
+                                                 "xdg-utils" "xdg-user-dirs" "xdg-dbus-proxy" "xdg-desktop-portal" "xdg-desktop-portal-gtk" "xdg-desktop-portal-wlr" "xdg-desktop-portal-lxqt" "xdg-desktop-portal-kde"
                                                  ;; Shell utilities.
                                                  "btop" "tmux" "ncdu"
                                                  ;; Editors.

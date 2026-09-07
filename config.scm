@@ -56,6 +56,7 @@
                                                  "stumpwm" "xfce" "sddm"
                                                  ;; Desktop utilities.
                                                  "xdg-utils" "xdg-user-dirs" "xdg-dbus-proxy" "xdg-desktop-portal" "xdg-desktop-portal-gtk" "xdg-desktop-portal-wlr" "xdg-desktop-portal-lxqt" "xdg-desktop-portal-kde"
+                                                 "tigervnc-client" "tigervnc-server" "x11vnc" "freerdp"
                                                  ;; Shell utilities.
                                                  "kitty" "rxvt-unicode" "xterm" "libvterm"
                                                  "btop" "tmux" "ncdu" "fastfetch"

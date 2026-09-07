@@ -7,6 +7,7 @@
   #:use-module (gnu home services shells)
   #:use-module (gnu home services gnupg)
   #:use-module (gnu home services desktop)
+  #:use-module (gnu home services sound)
   #:use-module (gnu services)
   #:use-module (gnu services security-token)
   #:use-module (gnu packages polkit)

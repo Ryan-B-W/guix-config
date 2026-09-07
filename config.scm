@@ -16,7 +16,7 @@
              (guix channels)
              (nongnu packages linux)
              (nongnu system linux-initrd))
-(use-service-modules cups desktop networking ssh xorg sddm security-token dict)
+(use-service-modules cups desktop sound networking ssh xorg sddm security-token dict)
 
 (define my-channels
   (append

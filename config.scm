@@ -62,7 +62,7 @@
                                                  ;; Programming languages.
                                                  "python"
                                                  ;; Fonts.
-                                                 "font-aporetic" "font-iosevka" "font-google-noto" "font-awesome-nonfree" "font-liberation" "font-terminus" "font-dejavu" "font-fira-code" "font-fira-mono" "font-fira-sans" "font-adobe-source-code-pro" "font-adobe-source-sans" "font-nerd-symbols"
+                                                 "font-aporetic" "font-iosevka" "font-google-noto" "font-google-noto-emoji" "font-google-noto-sans-cjk" "font-google-noto-sans-hebrew" "font-google-noto-serif-cjk" "font-google-noto-serif-hebrew" "font-awesome-nonfree" "font-liberation" "font-terminus" "font-dejavu" "font-fira-code" "font-fira-mono" "font-fira-sans" "font-adobe-source-code-pro" "font-adobe-source-sans" "font-nerd-symbols"
                                                  ;; Dictionaries and spellcheckers.
                                                  "dictd" "gcide" "vera" "wordnet" "freedict-dictionaries" "hunspell" "hunspell-dict-en" "hunspell-dict-en-us"))
                     %base-packages))

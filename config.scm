@@ -93,7 +93,30 @@
                  (service pcscd-service-type)
                  ;; To configure OpenSSH, pass an 'openssh-configuration'
                  ;; record as a second argument to 'service' below.
-                 (service openssh-service-type)
+                 (service openssh-service-type
+                          (openssh-configuration
+                           (port-number 22)
+                           (max-connections 200)
+                           (permit-root-login #f)
+                           (allow-empty-passwords #f)
+                           (password-authentication #f)
+                           (public-key-authentication #t)
+                           (x11-forwarding #t)
+                           (allow-agent-forwarding #f)
+                           (allow-tcp-forwarding #t)
+                           (gateway-ports #t)
+                           (challenge-response-authentication #t)
+                           (use-pam #t)
+                           (subsystems '("sftp" "internal-sftp"))
+                           (accepted-environment (list
+                                                  ;; Terminal emulator environment.
+                                                  "TERM" "COLORTERM"
+                                                  ;; Language and localization.
+                                                  "LANG" "LC_ALL" "LC_COLLATE" "LC_CTYPE" "LC_MESSAGES" "LC_MONETARY" "LC_NUMERIC" "LC_TIME" "LANGUAGE" "LC_ADDRESS" "LC_IDENTIFICATION" "LC_MEASUREMENT" "LC_NAME" "LC_PAPER" "LC_TELEPHONE"))
+                           (authorized-keys '())
+                           (generate-host-keys #t)
+                           (log-level 'info)
+                           (extra-content "")))
                  (service cups-service-type)
                  (set-xorg-configuration
                   (xorg-configuration (keyboard-layout keyboard-layout))

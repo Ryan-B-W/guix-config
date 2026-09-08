@@ -18,25 +18,25 @@
     (services
       (append
         (list
-          (service home-bash-service-type)
+         (service home-bash-service-type)
 
-          (service home-dbus-service-type)
-          (service home-pipewire-service-type)
+         (service home-dbus-service-type)
+         (service home-pipewire-service-type)
 
-          (service home-files-service-type
-           `((".guile" ,%default-dotguile)
-             (".Xdefaults" ,%default-xdefaults)))
+         (service home-files-service-type
+                  `((".guile" ,%default-dotguile)
+                    (".Xdefaults" ,%default-xdefaults)))
 
-          (service home-xdg-configuration-files-service-type
-           `(("gdb/gdbinit" ,%default-gdbinit)
-             ("nano/nanorc" ,%default-nanorc)))
+         (service home-xdg-configuration-files-service-type
+                  `(("gdb/gdbinit" ,%default-gdbinit)
+                    ("nano/nanorc" ,%default-nanorc)))
 
-          (service home-gpg-agent-service-type
-                   (home-gpg-agent-configuration
-                    (ssh-support? #t)
-                    (extra-content "allow-emacs-pinentry\nallow-loopback-pinentry\nwrite-env-file\nuse-standard-socket")))
-          (service home-openssh-service-type
-                   (home-openssh-configuration
+         (service home-gpg-agent-service-type
+                  (home-gpg-agent-configuration
+                   (ssh-support? #t)
+                   (extra-content "allow-emacs-pinentry\nallow-loopback-pinentry\nwrite-env-file\nuse-standard-socket")))
+         (service home-openssh-service-type
+                  (home-openssh-configuration
                     (hosts (list
                             (openssh-host (host-name "*")
                                           (port 22)

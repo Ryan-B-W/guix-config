@@ -41,11 +41,11 @@
 
   ;; The list of user accounts ('root' is implicit).
   (users (cons* (user-account
-                 (name "brody")
-                 (comment "Brody")
-                 (group "users")
-                 (home-directory "/home/brody")
-                 (supplementary-groups '("wheel" "netdev" "audio" "video" "plugdev")))
+                  (name "brody")
+                  (comment "Brody")
+                  (group "users")
+                  (home-directory "/home/brody")
+                  (supplementary-groups '("wheel" "netdev" "audio" "video" "plugdev")))
                 %base-user-accounts))
 
   ;; Packages installed system-wide.  Users can also install packages
@@ -77,7 +77,12 @@
                                                  ;; Programming languages.
                                                  "gcc-toolchain" "clang-toolchain" "guile" "bash" "sbcl" "python"
                                                  ;; Fonts.
-                                                 "font-aporetic" "font-iosevka" "font-google-noto" "font-google-noto-emoji" "font-google-noto-sans-cjk" "font-google-noto-sans-hebrew" "font-google-noto-serif-cjk" "font-google-noto-serif-hebrew" "font-awesome-nonfree" "font-liberation" "font-terminus" "font-dejavu" "font-fira-code" "font-fira-mono" "font-fira-sans" "font-adobe-source-code-pro" "font-adobe-source-sans" "font-nerd-symbols"
+                                                 "font-aporetic" "font-iosevka"
+                                                 "font-google-noto" "font-google-noto-emoji" "font-google-noto-sans-cjk" "font-google-noto-sans-hebrew" "font-google-noto-serif-cjk" "font-google-noto-serif-hebrew"
+                                                 "font-nerd-symbols" "font-awesome-nonfree"
+                                                 "font-liberation" "font-terminus" "font-dejavu"
+                                                 "font-fira-code" "font-fira-mono" "font-fira-sans"
+                                                 "font-adobe-source-code-pro" "font-adobe-source-sans"
                                                  ;; Dictionaries and spellcheckers.
                                                  "dictd" "gcide" "vera" "wordnet" "freedict-dictionaries" "hunspell" "hunspell-dict-en" "hunspell-dict-en-us"))
                     %base-packages))
@@ -85,129 +90,128 @@
   ;; Below is the list of system services.  To search for available
   ;; services, run 'guix system search KEYWORD' in a terminal.
   (services
-   (append (list (service sddm-service-type)
-                 (service xfce-desktop-service-type)
-                 (service gvfs-service-type)
-                 (udev-rules-service 'fido2 libfido2 #:groups '("plugdev"))
-                 (udev-rules-service 'yubikey yubikey-personalization)
-                 (service pcscd-service-type)
-                 ;; To configure OpenSSH, pass an 'openssh-configuration'
-                 ;; record as a second argument to 'service' below.
-                 (service openssh-service-type
-                          (openssh-configuration
-                           (port-number 22)
-                           (max-connections 200)
-                           (permit-root-login #f)
-                           (allow-empty-passwords #f)
-                           (password-authentication #f)
-                           (public-key-authentication #t)
-                           (x11-forwarding #t)
-                           (allow-agent-forwarding #f)
-                           (allow-tcp-forwarding #t)
-                           (gateway-ports #t)
-                           (challenge-response-authentication #t)
-                           (use-pam #t)
-                           (subsystems '("sftp" "internal-sftp"))
-                           (accepted-environment (list
-                                                  ;; Terminal emulator environment.
-                                                  "TERM" "COLORTERM"
-                                                  ;; Language and localization.
-                                                  "LANG" "LC_ALL" "LC_COLLATE" "LC_CTYPE" "LC_MESSAGES" "LC_MONETARY" "LC_NUMERIC" "LC_TIME" "LANGUAGE" "LC_ADDRESS" "LC_IDENTIFICATION" "LC_MEASUREMENT" "LC_NAME" "LC_PAPER" "LC_TELEPHONE"))
-                           (authorized-keys '())
-                           (generate-host-keys #t)
-                           (log-level 'info)
-                           (extra-content "")))
-                 (service cups-service-type)
-                 (set-xorg-configuration
-                  (xorg-configuration (keyboard-layout keyboard-layout))
-                  sddm-service-type)
-                 (service dicod-service-type
-                          (dicod-configuration
-                           (handlers (list (dicod-handler
-                                            (name "wordnet")
-                                            (module "wordnet")
-                                            (options (list #~(string-append "wnhome=" #$wordnet))))))
-                           (databases (cons* (dicod-database (name "wordnet")
-                                                             (complex? #t)
-                                                             (handler "wordnet"))
-                                             %dicod-database:gcide
-                                             (map dicod-freedict-database (list "eng-deu" "deu-eng" "eng-spa" "spa-eng")))))))
-           (modify-services %desktop-services
-                            (delete gdm-service-type)
-                            (delete pulseaudio-service-type)
-                            (guix-service-type
-                             config => (guix-configuration
-                                        (inherit config)
-                                        (substitute-urls
-                                         (append (list
-                                                  ;; NonGuix and community servers.
-                                                  "https://substitutes.nonguix.org"
-                                                  "https://nonguix-proxy.digital.xyz"
-                                                  "https://cache-cdn.guix.moe"
-                                                  "https://cache-sg.guix.moe"
-                                                  "https://guix.tobias.gr")
-                                                 ;; Default Guix official servers, "https://bordeaux.guix.gnu.org" and "https://ci.guix.gnu.org".
-                                                 %default-substitute-urls))
-                                        (authorized-keys
-                                         (append (list (local-file "/etc/guix/nonguix-signing-key.pub"))
-                                                 %default-authorized-guix-keys))
-                                        (channels my-channels)
-                                        (guix (guix-for-channels my-channels)))))))
-           ;; This is the default list of services we
-           ;; are appending to.
-           ;%desktop-services))
+   (cons*
+    (service sddm-service-type)
+    (service xfce-desktop-service-type)
+    (service gvfs-service-type)
+    (udev-rules-service 'fido2 libfido2 #:groups '("plugdev"))
+    (udev-rules-service 'yubikey yubikey-personalization)
+    (service pcscd-service-type)
+    ;; To configure OpenSSH, pass an 'openssh-configuration'
+    ;; record as a second argument to 'service' below.
+    (service openssh-service-type
+             (openssh-configuration
+               (port-number 22)
+               (max-connections 200)
+               (permit-root-login #f)
+               (allow-empty-passwords #f)
+               (password-authentication #f)
+               (public-key-authentication #t)
+               (x11-forwarding #t)
+               (allow-agent-forwarding #f)
+               (allow-tcp-forwarding #t)
+               (gateway-ports #t)
+               (challenge-response-authentication #t)
+               (use-pam #t)
+               (subsystems '("sftp" "internal-sftp"))
+               (accepted-environment (list
+                                      ;; Terminal emulator environment.
+                                      "TERM" "COLORTERM"
+                                      ;; Language and localization.
+                                      "LANG" "LC_ALL" "LC_COLLATE" "LC_CTYPE" "LC_MESSAGES" "LC_MONETARY" "LC_NUMERIC" "LC_TIME" "LANGUAGE" "LC_ADDRESS" "LC_IDENTIFICATION" "LC_MEASUREMENT" "LC_NAME" "LC_PAPER" "LC_TELEPHONE"))
+               (authorized-keys '())
+               (generate-host-keys #t)
+               (log-level 'info)
+               (extra-content "")))
+    (service cups-service-type)
+    (set-xorg-configuration
+     (xorg-configuration (keyboard-layout keyboard-layout))
+     sddm-service-type)
+    (service dicod-service-type
+             (dicod-configuration
+               (handlers (list (dicod-handler
+                                (name "wordnet")
+                                (module "wordnet")
+                                (options (list #~(string-append "wnhome=" #$wordnet))))))
+               (databases (cons* (dicod-database (name "wordnet")
+                                                 (complex? #t)
+                                                 (handler "wordnet"))
+                                 %dicod-database:gcide
+                                 (map dicod-freedict-database
+                                      (list "eng-deu" "deu-eng"
+                                            "eng-spa" "spa-eng"))))))
+    (modify-services %desktop-services
+      (delete gdm-service-type)
+      (delete pulseaudio-service-type)
+      (guix-service-type
+       config => (guix-configuration
+                   (inherit config)
+                   (substitute-urls
+                    (append (list
+                             ;; NonGuix and community servers.
+                             "https://substitutes.nonguix.org"
+                             "https://nonguix-proxy.digital.xyz"
+                             "https://cache-cdn.guix.moe"
+                             "https://cache-sg.guix.moe"
+                             "https://guix.tobias.gr")
+                            ;; Default Guix official servers, "https://bordeaux.guix.gnu.org" and "https://ci.guix.gnu.org".
+                            %default-substitute-urls))
+                   (authorized-keys
+                    (append (list (local-file "/etc/guix/nonguix-signing-key.pub"))
+                            %default-authorized-guix-keys))
+                   (channels my-channels)
+                   (guix (guix-for-channels my-channels)))))))
 
   (bootloader (bootloader-configuration
                 (bootloader grub-efi-bootloader)
                 (targets (list "/boot/efi"))
                 (keyboard-layout keyboard-layout)))
-  ;(initrd-modules (append '("mmc_block" "sdhci_pci") %base-initrd-modules))
   (swap-devices (list (swap-space
-                       (target (uuid
-                                "72d784a3-fe2f-49f4-9951-ebd86309c55b")))))
+                        (target (uuid
+                                 "72d784a3-fe2f-49f4-9951-ebd86309c55b")))))
 
   ;; The list of file systems that get "mounted".  The unique
   ;; file system identifiers there ("UUIDs") can be obtained
   ;; by running 'blkid' in a terminal.
   (file-systems (cons* (file-system
-                        (mount-point "/boot/efi")
-                        (device (uuid "32A2-6261"
+                         (mount-point "/boot/efi")
+                         (device (uuid "32A2-6261"
                                        'fat32))
-                        (type "vfat"))
+                         (type "vfat"))
                        (file-system
-                        (mount-point "/")
-                        (device (uuid
-                                 "e12dec54-9352-4782-8b4f-778748fce8cf"
-                                 'ext4))
-                        (type "ext4"))
+                         (mount-point "/")
+                         (device (uuid
+                                  "e12dec54-9352-4782-8b4f-778748fce8cf"
+                                  'ext4))
+                         (type "ext4"))
                        (file-system
-                        (mount-point "/home")
-                        (device (uuid
-                                 "f77063bd-b486-4a47-b550-2cb435428c8b"
-                                 'ext4))
-                        (type "ext4"))
+                         (mount-point "/home")
+                         (device (uuid
+                                  "f77063bd-b486-4a47-b550-2cb435428c8b"
+                                  'ext4))
+                         (type "ext4"))
                        (file-system
-                        (mount-point "/mnt/games1")
-                        (device (uuid
-                                 "edd22bef-ca5f-426b-99b2-91c9cc96b628"
-                                 'ext4))
-                        (type "ext4"))
+                         (mount-point "/mnt/games1")
+                         (device (uuid
+                                  "edd22bef-ca5f-426b-99b2-91c9cc96b628"
+                                  'ext4))
+                         (type "ext4"))
                        (file-system
-                        (mount-point "/mnt/games2")
-                        (device (uuid
-                                 "4eff7088-7ba6-4666-b340-4e78e7e89ce7"
-                                 'ext4))
-                        (type "ext4"))
+                         (mount-point "/mnt/games2")
+                         (device (uuid
+                                  "4eff7088-7ba6-4666-b340-4e78e7e89ce7"
+                                  'ext4))
+                         (type "ext4"))
                        (file-system
-                        (mount-point "/mnt/games3")
-                        (device (uuid
-                                 "fd0c6fbb-fc37-4007-ba28-007d72f3d6b2"
-                                 'ext4))
-                        (type "ext4"))
+                         (mount-point "/mnt/games3")
+                         (device (uuid
+                                  "fd0c6fbb-fc37-4007-ba28-007d72f3d6b2"
+                                  'ext4))
+                         (type "ext4"))
                        (file-system
-                        (mount-point "/mnt/backup")
-                        (device (uuid
-                                 "e2a5baa3-5bf6-49f6-b650-245ac05f0963"
-                                 'ext4))
-                        (type "ext4"))
+                         (mount-point "/mnt/backup")
+                         (device (uuid
+                                  "e2a5baa3-5bf6-49f6-b650-245ac05f0963"
+                                  'ext4))
+                         (type "ext4"))
                        %base-file-systems)))

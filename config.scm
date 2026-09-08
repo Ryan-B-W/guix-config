@@ -10,13 +10,14 @@
 ;; Indicate which modules to import to access the variables
 ;; used in this configuration.
 (use-modules (gnu)
+             (gnu packages linux)
              (gnu packages package-management)
              (gnu packages security-token)
              (gnu packages wordnet)
              (guix channels)
              (nongnu packages linux)
              (nongnu system linux-initrd))
-(use-service-modules cups desktop sound networking ssh xorg sddm security-token dict)
+(use-service-modules base linux cups desktop sound networking ssh xorg sddm security-token dict)
 
 (define my-channels
   (append
@@ -29,6 +30,10 @@
              (openpgp-fingerprint
               "2A39 3FFF 68F4 EF7A 3D29  12AF 6F51 20A0 22FB B2D5")))))
    %default-channels))
+
+(define v4l2loopback-configuration
+  (plain-file "v4l2loopback.conf"
+              "devices=2 max_buffers=2 exclusive_caps=1,1 video_nr=90,91 card_label=loopback-0,loopback-1"))
 
 (operating-system
   (kernel linux)
@@ -91,6 +96,12 @@
   ;; services, run 'guix system search KEYWORD' in a terminal.
   (services
    (cons*
+    (service kernel-module-loader-service-type
+             (list
+              ;; v4l2loopback configuration.
+              "v4l2loopback"))
+    (simple-service 'v4l2loopback-configuration etc-service-type
+                    (list `("modprobe.d/v4l2loopback.conf" ,v4l2loopback-configuration)))
     (service sddm-service-type)
     (service xfce-desktop-service-type)
     (service gvfs-service-type)

@@ -56,6 +56,7 @@
                                                  "mesa" "mesa-utils" "vulkan-loader" "vulkan-tools" "spirv-tools" "glslang"
                                                  "xf86-video-amdgpu" "amdgpu-firmware"
                                                  ;; Audio/video.
+                                                 "v4l2-loopback-linux-module"
                                                  "libva-utils" "vdpauinfo"
                                                  "pipewire" "wireplumber"
                                                  "qpwgraph" "easyeffects"

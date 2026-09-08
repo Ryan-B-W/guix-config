@@ -102,6 +102,23 @@
               "v4l2loopback"))
     (simple-service 'v4l2loopback-configuration etc-service-type
                     (list `("modprobe.d/v4l2loopback.conf" ,v4l2loopback-configuration)))
+    (service sysctl-service-type
+             (sysctl-configuration
+               (settings (cons*
+                          ("kernel.pid_max" . "257256")
+                          ("vm.swappiness" . "0")
+                          %default-sysctl-settings))))
+    (service pam-limits-service-type
+             (list
+              ;; General limit increases.
+              (pam-limits-entry "*" 'both memlock 4194304)
+              ;; For compatibility with Wine/Proton Esync and other software that requires a very large number of file descriptors.
+              (pam-limits-entry "@users" 'hard 'nofile 1048576)
+              (pam-limits-entry "@users" 'soft 'nofile 524288)
+              ;; For pseudo-realtime/low-latency service support.
+              (pam-limits-entry "@realtime" 'both 'rtprio 99)
+              (pam-limits-entry "@realtime" 'both 'memlock 'unlimited)))
+
     (service sddm-service-type)
     (service xfce-desktop-service-type)
     (service gvfs-service-type)

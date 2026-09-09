@@ -174,9 +174,7 @@
                             %default-substitute-urls))
                    (authorized-keys
                     (append (list (local-file "/etc/guix/nonguix-signing-key.pub"))
-                            %default-authorized-guix-keys))
-                   (channels my-channels)
-                   (guix (guix-for-channels my-channels)))))))
+                            %default-authorized-guix-keys)))))))
 
   (bootloader (bootloader-configuration
                 (bootloader grub-efi-bootloader)

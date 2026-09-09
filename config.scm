@@ -14,22 +14,9 @@
              (gnu packages package-management)
              (gnu packages security-token)
              (gnu packages wordnet)
-             (guix channels)
              (nongnu packages linux)
              (nongnu system linux-initrd))
 (use-service-modules base linux sysctl cups desktop sound networking ssh xorg sddm security-token dict)
-
-(define my-channels
-  (append
-   (list (channel
-           (name 'nonguix)
-           (url "https://gitlab.com/nonguix/nonguix")
-           (introduction
-            (make-channel-introduction
-             "897c1a470da759236cc11798f4e0a5f7d4d59fbc"
-             (openpgp-fingerprint
-              "2A39 3FFF 68F4 EF7A 3D29  12AF 6F51 20A0 22FB B2D5")))))
-   %default-channels))
 
 (define v4l2loopback-configuration
   (plain-file "v4l2loopback.conf"

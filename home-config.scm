@@ -41,8 +41,6 @@
                   (home-openssh-configuration
                     (hosts (list
                             (openssh-host (name "*")
-                                          (host-name "*")
-                                          (port 22)
                                           (extra-content "ServerAliveInterval 120"))
                             (openssh-host (name "sdf.org")
                                           (host-name "sdf.org")

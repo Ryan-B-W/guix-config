@@ -168,8 +168,9 @@
                              "https://substitutes.nonguix.org"
                              "https://nonguix-proxy.digital.xyz"
                              "https://cache-cdn.guix.moe"
-                             "https://cache-sg.guix.moe"
-                             "https://guix.tobias.gr")
+                             "https://cache-us-lax.guix.moe"
+                             "https://guix.tobias.gr"
+                             "https://bordeaux-us-east-mirror.cbaines.net/")
                             ;; Default Guix official servers, "https://bordeaux.guix.gnu.org" and "https://ci.guix.gnu.org".
                             %default-substitute-urls))
                    (authorized-keys

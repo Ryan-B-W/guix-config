@@ -76,7 +76,8 @@
                                                  "font-fira-code" "font-fira-mono" "font-fira-sans"
                                                  "font-adobe-source-code-pro" "font-adobe-source-sans"
                                                  ;; Dictionaries and spellcheckers.
-                                                 "dictd" "gcide" "vera" "wordnet" "freedict-dictionaries" "hunspell" "hunspell-dict-en" "hunspell-dict-en-us"))
+                                                 "hunspell" "hunspell-dict-en" "hunspell-dict-en-us"
+                                                 "dictd" "gcide" "vera" "wordnet" "freedict-dictionaries"))
                     %base-packages))
 
   ;; Below is the list of system services.  To search for available

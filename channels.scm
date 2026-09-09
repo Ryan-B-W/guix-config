@@ -1,6 +1,8 @@
 (list (channel
        (name 'nonguix)
        (url "https://gitlab.com/nonguix/nonguix")
+       ;; Mirrors:
+       ;; - https://github.com/nonguix/nonguix.git
        (branch "master")
        (introduction
         (make-channel-introduction
@@ -10,6 +12,10 @@
       (channel
        (name 'guix)
        (url "https://git.guix.gnu.org/guix.git")
+       ;; Redirects to https://codeberg.org/guix/guix.git
+       ;; Mirrors:
+       ;; - https://git.savannah.gnu.org/git/guix.git
+       ;; - https://codeberg.org/guix/guix-mirror.git
        (branch "master")
        (introduction
         (make-channel-introduction

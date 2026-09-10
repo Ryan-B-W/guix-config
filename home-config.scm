@@ -12,11 +12,52 @@
   #:use-module (gnu home services sound)
   #:use-module (gnu services)
   #:use-module (gnu services security-token)
+  #:use-module (gnu packages)
   #:use-module (gnu packages polkit)
   #:use-module (gnu system shadow))
 
 (define home-config
   (home-environment
+   (packages (specifications->packages
+              (list
+               "plasma-browser-integration"
+               "sshfs"
+               "kdeconnect"
+               "v4l2loopback-linux-module"
+               "mpv"
+               "pulseaudio"
+               ;; Terminal emulators.
+               "rxvt-unicode" "kitty"
+               ;; Shell utilities.
+               "ncurses" "tree" "unzip"
+               ;; Desktop environment.
+               "sbcl-stumpwm-net"
+               "sbcl-stumpwm-battery-portable"
+               "sbcl-stumpwm-wifi"
+               ;; Remote desktop.
+               "tigervnc-server" "tigervnc-client"
+               ;; Desktop utilities.
+               "pavucontrol" "flatpak" "electron" "xrandr"
+               ;; Authentication.
+               "ccid" "pinentry" "passff-host" "password-store" "gnupg"
+               ;; Communication.
+               "gajim"
+               ;; Browsers.
+               "firefox"
+               ;; Programming languages, compilers, interpreters, and development tools.
+               "clang" "llvm" "gcc-toolchain" "bash" "git" "diffoscope" "difftastic"
+               ;; Emacs.
+               "emacs" "emacs-evil-org" "emacs-evil-surround" "emacs-evil-numbers" "emacs-highlight-indent-guides" "emacs-flymake-languagetool" "emacs-flymake" "emacs-keyfreq@1" "emacs-rfc-mode" "emacs-osm" "emacs-lorem-ipsum" "emacs-minimap" "emacs-treemacs-extra" "emacs-treemacs" "emacs-projectile" "emacs-editorconfig" "emacs-dired-preview" "emacs-dired-git-info" "emacs-dired-du" "emacs-nix-ts-mode" "emacs-nginx-mode" "emacs-apache-mode" "emacs-auctex" "emacs-biblio" "emacs-emms" "emacs-gdscript-mode" "emacs-irony-eldoc" "emacs-irony-mode-server" "emacs-irony-mode" "emacs-php-mode" "emacs-sed-mode" "emacs-ess" "emacs-csv-mode" "emacs-jinja2-mode" "emacs-web-mode" "emacs-haskell-mode" "emacs-markdown-mode" "emacs-rainbow-mode" "emacs-scad-mode" "emacs-graphviz-dot-mode" "emacs-gnuplot" "emacs-elf-mode" "emacs-nhexl-mode" "emacs-platformio-mode" "emacs-arduino-mode" "emacs-which-key" "emacs-eglot" "emacs-slime" "emacs-evil-cleverparens" "emacs-smartparens" "emacs-sr-speedbar" "emacs-dape" "emacs-jsonrpc" "emacs-hl-todo" "emacs-diff-hl" "emacs-git-modes" "emacs-magit-lfs" "emacs-magit-annex" "emacs-forge" "emacs-magit" "emacs-transient" "emacs-pinentry" "emacs-htmlize" "emacs-org-modern" "emacs-orgit-forge" "emacs-orgit" "emacs-org-web-tools" "emacs-org-roam-ui" "emacs-citar-org-roam" "emacs-org-roam" "emacs-emacsql" "emacs-citar" "emacs-org" "emacs-dashboard" "emacs-nov" "emacs-adaptive-wrap" "emacs-devdocs" "emacs-eldoc" "emacs-eldoc-box" "emacs-capf-autosuggest" "emacs-pcmpl-args" "emacs-company" "emacs-swiper" "emacs-counsel" "emacs-ivy-hydra" "emacs-ivy" "emacs-flx" "emacs-nerd-icons" "emacs-evil-collection" "emacs-evil" "emacs-telephone-line" "emacs-modus-themes" "emacs-compat" "emacs-use-package" "emacs-goto-chg" "emacs-geiser-guile" "emacs-geiser" "emacs-guix" "tree-sitter-zig"
+               ;; Tree-sitter.
+               "tree-sitter" "tree-sitter-yuck" "tree-sitter-yaml" "tree-sitter-xml" "tree-sitter-xcompose" "tree-sitter-wgsl" "tree-sitter-wast" "tree-sitter-vue" "tree-sitter-vimdoc" "tree-sitter-vim" "tree-sitter-vhdl" "tree-sitter-verilog" "tree-sitter-v" "tree-sitter-uxntal" "tree-sitter-ungrammar" "tree-sitter-udev" "tree-sitter-typst" "tree-sitter-typescript" "tree-sitter-twig" "tree-sitter-toml" "tree-sitter-tlaplus" "tree-sitter-thrift" "tree-sitter-test" "tree-sitter-tcl" "tree-sitter-tablegen" "tree-sitter-systemverilog" "tree-sitter-swift" "tree-sitter-sway" "tree-sitter-svelte" "tree-sitter-starlark" "tree-sitter-squirrel" "tree-sitter-sql" "tree-sitter-sparql" "tree-sitter-solidity" "tree-sitter-smithy" "tree-sitter-smali" "tree-sitter-sfapex" "tree-sitter-scss" "tree-sitter-scheme" "tree-sitter-scala" "tree-sitter-rust" "tree-sitter-ruby" "tree-sitter-rst" "tree-sitter-ron" "tree-sitter-rego" "tree-sitter-readline" "tree-sitter-re2c" "tree-sitter-racket" "tree-sitter-r" "tree-sitter-query" "tree-sitter-qmljs" "tree-sitter-qmldir" "tree-sitter-qml" "tree-sitter-python-requirements" "tree-sitter-python-manifest" "tree-sitter-python" "tree-sitter-purescript" "tree-sitter-puppet" "tree-sitter-proto" "tree-sitter-prisma" "tree-sitter-printf" "tree-sitter-powershell" "tree-sitter-pony" "tree-sitter-po" "tree-sitter-plantuml" "tree-sitter-phpdoc" "tree-sitter-php" "tree-sitter-pgn" "tree-sitter-perl" "tree-sitter-pem" "tree-sitter-pascal" "tree-sitter-org" "tree-sitter-odin" "tree-sitter-ocaml" "tree-sitter-objc" "tree-sitter-nqc" "tree-sitter-nix" "tree-sitter-ninja" "tree-sitter-nim" "tree-sitter-netlinx" "tree-sitter-meson" "tree-sitter-mermaid" "tree-sitter-matlab" "tree-sitter-markdown" "tree-sitter-make" "tree-sitter-magik" "tree-sitter-luau" "tree-sitter-luadoc" "tree-sitter-lua-patterns" "tree-sitter-lua" "tree-sitter-llvm" "tree-sitter-linkerscript" "tree-sitter-latex" "tree-sitter-kotlin" "tree-sitter-kdl" "tree-sitter-kconfig" "tree-sitter-just" "tree-sitter-julia" "tree-sitter-jsonnet" "tree-sitter-json" "tree-sitter-jsdoc" "tree-sitter-javascript" "tree-sitter-java-properties" "tree-sitter-java" "tree-sitter-janet" "tree-sitter-ini" "tree-sitter-hyprlang" "tree-sitter-html" "tree-sitter-hlsl" "tree-sitter-heex" "tree-sitter-hcl" "tree-sitter-haxe" "tree-sitter-haskell" "tree-sitter-hare" "tree-sitter-hack" "tree-sitter-gstlaunch" "tree-sitter-groovy" "tree-sitter-graphql" "tree-sitter-gpr" "tree-sitter-gosum" "tree-sitter-gomod" "tree-sitter-go" "tree-sitter-gn" "tree-sitter-glsl" "tree-sitter-gleam" "tree-sitter-gitignore" "tree-sitter-gitcommit" "tree-sitter-gitattributes" "tree-sitter-gdscript" "tree-sitter-func" "tree-sitter-fortran" "tree-sitter-fish" "tree-sitter-firrtl" "tree-sitter-f-sharp" "tree-sitter-erlang" "tree-sitter-embedded-template" "tree-sitter-elm" "tree-sitter-elixir" "tree-sitter-elisp" "tree-sitter-doxygen" "tree-sitter-dot" "tree-sitter-dockerfile" "tree-sitter-devicetree" "tree-sitter-dart" "tree-sitter-d" "tree-sitter-cypher" "tree-sitter-cuda" "tree-sitter-csv" "tree-sitter-css" "tree-sitter-cpp" "tree-sitter-cpon" "tree-sitter-comment" "tree-sitter-cmake" "tree-sitter-clojure" "tree-sitter-clisp" "tree-sitter-cli" "tree-sitter-clarity" "tree-sitter-chatito" "tree-sitter-capnp" "tree-sitter-cairo" "tree-sitter-c-sharp" "tree-sitter-c" "tree-sitter-blueprint" "tree-sitter-bitbake" "tree-sitter-bicep" "tree-sitter-bibtex" "tree-sitter-beancount" "tree-sitter-bash" "tree-sitter-awk" "tree-sitter-astro" "tree-sitter-asm" "tree-sitter-arduino" "tree-sitter-agda" "tree-sitter-ada" "tree-sitter-actionscript"
+               ;; Dictionaries, spell-checkers, and grammar checkers.
+               "hunspell-dict-en" "hunspell" "dictd"
+               ;; Documentation.
+               "texinfo" "info-reader"
+               ;; Fonts.
+               "fontconfig" "font-aporetic"
+               ;; filesystems.
+               "squashfs-tools" "squashfuse" "squashfuse-for-appimage" "fuse")))
     (services
       (append
         (list

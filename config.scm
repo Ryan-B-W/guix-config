@@ -63,7 +63,7 @@
                                                  ;; Shell utilities.
                                                  "kitty" "rxvt-unicode" "xterm" "libvterm"
                                                  "btop" "tmux" "ncdu" "fastfetch" "git"
-                                                 "openssh" "mosh"
+                                                 "openssh" "mosh" "rsync" "rclone" "curl" "wget2"
                                                  ;; Editors.
                                                  "emacs" "vim-full" "neovim"
                                                  ;; Programming languages.

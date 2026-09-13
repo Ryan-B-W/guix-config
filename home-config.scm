@@ -31,9 +31,23 @@
                ;; Shell utilities.
                "ncurses" "tree" "unzip"
                ;; Desktop environment.
-               "sbcl-stumpwm-net"
+               "stumpwm" "cl-stumpwm" "stumpish"
+               "sbcl-stumpwm-ttf-fonts"
+               "sbcl-stumpwm-binwarp"
+               "sbcl-stumpwm-screenshot"
+               "sbcl-stumpwm-pass"
+               "sbcl-stumpwm-notify"
+               ;;"sbcl-stumpwm-rofi"
+               "sbcl-stumpwm-wpctl"
+               "sbcl-stumpwm-pamixer"
                "sbcl-stumpwm-battery-portable"
+               "sbcl-stumpwm-hostname"
+               "sbcl-stumpwm-stumptray"
+               "sbcl-stumpwm-net"
                "sbcl-stumpwm-wifi"
+               "sbcl-stumpwm-mem"
+               "sbcl-stumpwm-cpu"
+               "sbcl-stumpwm-disk"
                ;; Remote desktop.
                "tigervnc-server" "tigervnc-client"
                ;; Desktop utilities.

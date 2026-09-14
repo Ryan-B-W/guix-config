@@ -101,6 +101,12 @@
               (pam-limits-entry "@realtime" 'both 'rtprio 99)
               (pam-limits-entry "@realtime" 'both 'memlock 'unlimited)))
 
+    (service guix-publish-service-type
+             (guix-publish-configuration
+               (port 9070)
+               (host "0.0.0.0")
+               (advertise? #t)))
+
     (service sddm-service-type)
     (service xfce-desktop-service-type)
     (service gvfs-service-type)

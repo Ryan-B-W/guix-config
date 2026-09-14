@@ -97,7 +97,6 @@
                                                               "sourcepath:"
                                                               "histappend:"
                                                               "no_empty_cmd_completion"))
-                                ("FCEDIT")
                                 ("HISTCONTROL" . "ignorespace")))
                    (aliases '(("grep" . "grep --color=auto")
                               ("ip" . "ip -color=auto")

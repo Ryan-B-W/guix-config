@@ -168,7 +168,7 @@
                             ;; Default Guix official servers, "https://bordeaux.guix.gnu.org" and "https://ci.guix.gnu.org".
                             %default-substitute-urls))
                    (authorized-keys
-                    (append (list (local-file "/etc/guix/nonguix-signing-key.pub"))
+                    (append (list (local-file "nonguix-signing-key.pub"))
                             %default-authorized-guix-keys)))))))
 
   (bootloader (bootloader-configuration

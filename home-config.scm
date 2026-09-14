@@ -237,41 +237,26 @@
                     (known-hosts *unspecified*)
                     (known-hosts2 (list
                                    (plain-file
-                                    "hugo"
-                                    "[hugo.home.ryanbw.org]:2222 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP7ZcqphH8urTs0312v+nShHjrqdd3NGltTa57oHJBrn")
+                                    "hugo.ed25519"
+                                    "[hugo.home.ryanbw.org]:2222,[home.ryanbw.org]:2222 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP7ZcqphH8urTs0312v+nShHjrqdd3NGltTa57oHJBrn")
                                    (plain-file
-                                    "home"
-                                    "[home.ryanbw.org]:2222 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP7ZcqphH8urTs0312v+nShHjrqdd3NGltTa57oHJBrn")
+                                    "asimov.ed25519"
+                                    "asimov,asimov.home.ryanbw.org,asimov.local ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN+AiNOLM8OoGTw/9qFJhk7CKr3ycsAjtAh5qbMcWmgr")
                                    (plain-file
-                                    "asimov"
-                                    "asimov ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNWP/7GU94UY+zGi6MHZS3cBtDGba+hdvja9IeajDE0xo4Dh1PKajKOf4nAD1KhMuB6pBrVSdQLx8cIDBH39z2E=")
+                                    "asimov.ecdsa"
+                                    "asimov,asimov.home.ryanbw.org,asimov.local ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDy5d+Pt70jM9YCgaNL/HwSLOhUenlOwGgIBGGkGZr8i0O95NzblN5yCR6iFlgBNaSRsP0GxArNscgDUunrNBME=")
                                    (plain-file
-                                    "asimov.home"
-                                    "asimov.home.ryanbw.org ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNWP/7GU94UY+zGi6MHZS3cBtDGba+hdvja9IeajDE0xo4Dh1PKajKOf4nAD1KhMuB6pBrVSdQLx8cIDBH39z2E=")
+                                    "asimov.rsa"
+                                    "asimov,asimov.home.ryanbw.org,asimov.local ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCyOK2RcYnoDEbCykJCzzNcFQYeTn57HX3+MJDoZ8tugn7xGDS1jxvyqtE2V89789tb6bu/XVkjt8UnHViDWvdVVrl+kDxMoU73Qe1sV7fHNHA+B+nMJksRPS28mbmtjGwu6k1FEHXQi+7X1hVlALE/F69/7RJuw316xSgBp8+rtj3fvHYc2LT8kWxn83XKF5pU8kcBX7l7W3Qw1nSqKmDRTYtbwEljuB/KSAEhGwJn1BjNGAl6CLHs8i8Kg9bRTOSEUK4YZFA4qcqagLX9iNaMxZAY5ypkqRzbgemROJtVZgPI61TYIBU1LzXH7SJpPHCm2D9pAHQSCNHGjKq6dNfCPzbO8IwB6EYhII/WJnstKrFRsqNw5c1y3gRVqeMOqc2j37MuHtWrXbuE5hBI/PHNznzIlut0ZnaZuciA288GTK0AJapdq/kv2CfRmF//RsP5GHy3MUtfXLuUFOk5A0TE01Nwr0vqQs3AnnJZOoVc5eYEHQ/jggNJ1C9Ib3IDwxk=")
                                    (plain-file
-                                    "asimov.local"
-                                    "asimov.local ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNWP/7GU94UY+zGi6MHZS3cBtDGba+hdvja9IeajDE0xo4Dh1PKajKOf4nAD1KhMuB6pBrVSdQLx8cIDBH39z2E=")
+                                    "adams.ed25519"
+                                    "adams,adams.home.ryanbw.org,adams.local ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBYFI6KeRoNtvkGCMACJmvRC7AaSzGVn49cl+fuHN2PK")
                                    (plain-file
-                                    "adams"
-                                    "adams ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBYFI6KeRoNtvkGCMACJmvRC7AaSzGVn49cl+fuHN2PK")
+                                    "adams.ecdsa"
+                                    "adams,adams.home.ryanbw.org,adams.local ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDPW7iErqpJ7m8wWGTI0fV9f1NgbldH1kcoNjxANcsqQIHdATU7MowSKzToI4bFhuWkLofthrlCG7YkvyYWORo8=")
                                    (plain-file
-                                    "adams.home"
-                                    "adams.home.ryanbw.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBYFI6KeRoNtvkGCMACJmvRC7AaSzGVn49cl+fuHN2PK")
-                                   (plain-file
-                                    "adams.local"
-                                    "adams.local ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBYFI6KeRoNtvkGCMACJmvRC7AaSzGVn49cl+fuHN2PK")
-                                   (plain-file
-                                    "adams.home.ecdsa"
-                                    "adams.home.ryanbw.org ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDPW7iErqpJ7m8wWGTI0fV9f1NgbldH1kcoNjxANcsqQIHdATU7MowSKzToI4bFhuWkLofthrlCG7YkvyYWORo8=")
-                                   (plain-file
-                                    "shelley"
-                                    "shelley ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBjmln6sNbtNTNCa89DrIyfOyJ5xfzo74jHm/XUeeKsMs3AqGW4z9gqi+zbUma7FQBKl+/io6vmaHkPOVE89xKk=")
-                                   (plain-file
-                                    "shelley.home"
-                                    "shelley.home.ryanbw.org ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBjmln6sNbtNTNCa89DrIyfOyJ5xfzo74jHm/XUeeKsMs3AqGW4z9gqi+zbUma7FQBKl+/io6vmaHkPOVE89xKk=")
-                                   (plain-file
-                                    "shelley.local"
-                                    "shelley.local ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBjmln6sNbtNTNCa89DrIyfOyJ5xfzo74jHm/XUeeKsMs3AqGW4z9gqi+zbUma7FQBKl+/io6vmaHkPOVE89xKk=")
+                                    "shelley.ecdsa"
+                                    "shelley,shelley.home.ryanbw.org,shelley.local ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBjmln6sNbtNTNCa89DrIyfOyJ5xfzo74jHm/XUeeKsMs3AqGW4z9gqi+zbUma7FQBKl+/io6vmaHkPOVE89xKk=")
                                    (plain-file
                                     "clockworkpi.ed22519"
                                     "clockworkpi-a06 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE/Y/iS+7qsU2MiO3XRUuejQ5H6VHobGy+WTwiFC0ujo")
@@ -282,22 +267,13 @@
                                     "clockworkpi.rsa"
                                     "clockworkpi-a06 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCn7c0nK7zevvjjmsgh9rsX6e8EqXk9vfK0UvcsEXxiZSi9Pby0br+3/Ih9TVGtS/iXNJUijCxcOrrAdP7jecHA0YwA0XnEGDSCJ6D7rTvnK8rVcFGlqOK1hneNwcSaRjctY4qdur2CMePnapTvvIM59G3ogbbxObOEAyiwV1XxICH7vpAl0Bwn3w7zg08a8lPXyck7cHNTKxKzGXelz3Vp2Cv1AAiBaNhIsRWfiwSd/Y0CnJy4Sj79ixJzQDnvrUwz+N6GyDRVLeIshij891D1diMhAZX6F1tCBwBbqIYr9mFS2Pl2MNgF06G28FbJuPgz1qd3ovrAw2TLA3ZpYnypcLPtP9D8sUV26uD88hLtwIFpcZ39br93Tsd4JZfROkxDxqbp6ogsIHZHHQjLo0PsuZ670uP+Q6tyEaEKvejqR03OvDuy9kyIOsVbey3LSuqeU65zpOfjmsmwf/yDHhpcSKvlYbYE3PlLnKYZ3viQw8rITrOGblM6DvsIW876dvU=")
                                    (plain-file
-                                    "glass-wall"
-                                    "glass-wall ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMUhOA5M5a3FnlomXdfTtOPX6+Jvo9romx965rkG7weV")
+                                    "glass-wall.ed25519"
+                                    "glass-wall,glass-wall.tgfoffice.ryanbw.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMUhOA5M5a3FnlomXdfTtOPX6+Jvo9romx965rkG7weV")
                                    (plain-file
-                                    "glass-wall.tgf"
-                                    "glass-wall.tgfoffice.ryanbw.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMUhOA5M5a3FnlomXdfTtOPX6+Jvo9romx965rkG7weV")
+                                    "sdf.org.ed25519"
+                                    "sdf.org,tty.sdf.org,meta.sdf.org,faeroes.sdf.org,iceland.sdf.org,sverige.sdf.org,miku.sdf.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJJk3a190w/1TZkzVKORvz/kwyKmFY144lVeDFm80p17")
                                    (plain-file
-                                    "sdf.org"
-                                    "sdf.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJJk3a190w/1TZkzVKORvz/kwyKmFY144lVeDFm80p17")
-                                   (plain-file
-                                    "tty.sdf.org"
-                                    "tty.sdf.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJJk3a190w/1TZkzVKORvz/kwyKmFY144lVeDFm80p17")
-                                   (plain-file
-                                    "meta.sdf.org"
-                                    "meta.sdf.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJJk3a190w/1TZkzVKORvz/kwyKmFY144lVeDFm80p17")
-                                   (plain-file
-                                    "ma.sdf.org"
+                                    "ma.sdf.org.ed25519"
                                     "ma.sdf.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBYd/fxnh/aZm2mAvZyCJn23A8sN7I8VZamIbamWtm/z")
                                    (plain-file
                                     "ma.sdf.org.rsa"
@@ -305,18 +281,6 @@
                                    (plain-file
                                     "ma.sdf.org.ecdsa"
                                     "ma.sdf.org ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKChFj75RhAAwW/yQBLFZTBwLNJ6C3/DjCpZz+ATTea5RiVQ+/YMpED0GZ+877Tx0XXCbARjN0cLhWrOlPc8tCQ=")
-                                   (plain-file
-                                    "faeroes.sdf.org"
-                                    "faeroes.sdf.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJJk3a190w/1TZkzVKORvz/kwyKmFY144lVeDFm80p17")
-                                   (plain-file
-                                    "iceland.sdf.org"
-                                    "iceland.sdf.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJJk3a190w/1TZkzVKORvz/kwyKmFY144lVeDFm80p17")
-                                   (plain-file
-                                    "sverige.sdf.org"
-                                    "sverige.sdf.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJJk3a190w/1TZkzVKORvz/kwyKmFY144lVeDFm80p17")
-                                   (plain-file
-                                    "miku.sdf.org"
-                                    "miku.sdf.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJJk3a190w/1TZkzVKORvz/kwyKmFY144lVeDFm80p17")
                                    (plain-file
                                     "github.com.ed25519"
                                     "github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl")

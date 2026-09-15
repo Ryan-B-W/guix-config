@@ -78,7 +78,7 @@
          (service home-bash-service-type
                   (home-bash-configuration
                    (variables `(("HISTSIZE" . "1000000000")
-                                ("HISTFILESIZE" . "$HISTSIZE")
+                                ("HISTFILESIZE" . "${HISTSIZE}")
                                 ("PROMPT_COMMAND" . "${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r")
                                 ("BASHOPTS" . ,(string-append "checkwinsize:"
                                                               "cmdhist:"
@@ -101,16 +101,7 @@
                    (aliases '(("grep" . "grep --color=auto")
                               ("ip" . "ip -color=auto")
                               ("ll" . "ls -l")
-                              ("ls" . "ls -p --color=auto")))
-                   (bashrc (list (local-file
-                                  "/home/brody/guix-config//.bashrc"
-                                  "bashrc")))
-                   (bash-profile (list (local-file
-                                        "/home/brody/guix-config//.bash_profile"
-                                        "bash_profile")))
-                   (bash-logout (list (local-file
-                                       "/home/brody/guix-config//.bash_logout"
-                                       "bash_logout")))))
+                              ("ls" . "ls -p --color=auto")))))
 
          (service home-dbus-service-type)
          (service home-pipewire-service-type)

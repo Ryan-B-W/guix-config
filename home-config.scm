@@ -51,7 +51,7 @@
                ;; Remote desktop.
                "tigervnc-server" "tigervnc-client"
                ;; Desktop utilities.
-               "pavucontrol" "flatpak" "electron" "xrandr"
+               "pavucontrol" "flatpak" "electron" "xrandr" "arandr"
                ;; Authentication.
                "ccid" "pinentry" "passff-host" "password-store" "gnupg"
                ;; Communication.

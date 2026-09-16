@@ -163,8 +163,9 @@
                             ;; Default Guix official servers, "https://bordeaux.guix.gnu.org" and "https://ci.guix.gnu.org".
                             %default-substitute-urls))
                    (authorized-keys
-                    (append (list (local-file "nonguix-signing-key.pub"))
-                            %default-authorized-guix-keys)))))))
+                    (cons* (local-file "nonguix-signing-key.pub")
+                           (local-file "asimov-signing-key.pub")
+                           %default-authorized-guix-keys)))))))
 
   (bootloader (bootloader-configuration
                 (bootloader grub-efi-bootloader)
@@ -182,7 +183,7 @@
                          (device (uuid "384E-28F3"
                                        'fat32))
                          (type "vfat"))
-		       (file-system
+                       (file-system
                          (mount-point "/home")
                          (device (uuid
                                   "10ff1238-a5cc-4fe8-8723-874c24c71798"

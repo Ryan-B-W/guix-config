@@ -240,10 +240,13 @@
                                     "asimov,asimov.home.ryanbw.org,asimov.local ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCyOK2RcYnoDEbCykJCzzNcFQYeTn57HX3+MJDoZ8tugn7xGDS1jxvyqtE2V89789tb6bu/XVkjt8UnHViDWvdVVrl+kDxMoU73Qe1sV7fHNHA+B+nMJksRPS28mbmtjGwu6k1FEHXQi+7X1hVlALE/F69/7RJuw316xSgBp8+rtj3fvHYc2LT8kWxn83XKF5pU8kcBX7l7W3Qw1nSqKmDRTYtbwEljuB/KSAEhGwJn1BjNGAl6CLHs8i8Kg9bRTOSEUK4YZFA4qcqagLX9iNaMxZAY5ypkqRzbgemROJtVZgPI61TYIBU1LzXH7SJpPHCm2D9pAHQSCNHGjKq6dNfCPzbO8IwB6EYhII/WJnstKrFRsqNw5c1y3gRVqeMOqc2j37MuHtWrXbuE5hBI/PHNznzIlut0ZnaZuciA288GTK0AJapdq/kv2CfRmF//RsP5GHy3MUtfXLuUFOk5A0TE01Nwr0vqQs3AnnJZOoVc5eYEHQ/jggNJ1C9Ib3IDwxk=")
                                    (plain-file
                                     "adams.ed25519"
-                                    "adams,adams.home.ryanbw.org,adams.local ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBYFI6KeRoNtvkGCMACJmvRC7AaSzGVn49cl+fuHN2PK")
+                                    "adams,adams.home.ryanbw.org,adams.local ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFNqkbrrfcA0GoG9lC0S/q0hcZxfEk8Q0VV0bVlHZ8Um")
                                    (plain-file
                                     "adams.ecdsa"
-                                    "adams,adams.home.ryanbw.org,adams.local ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDPW7iErqpJ7m8wWGTI0fV9f1NgbldH1kcoNjxANcsqQIHdATU7MowSKzToI4bFhuWkLofthrlCG7YkvyYWORo8=")
+                                    "adams,adams.home.ryanbw.org,adams.local ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBIzID0q1s/puqyEy5vzrj7bBfHnD/tno8GLtjSqzWMwZKAOddH66Ynl6pYxMp1Ct10Oc33xmndxDfUputlOn4vo=")
+                                   (plain-file
+                                    "adams.rsa"
+                                    "adams,adams.home.ryanbw.org,adams.local ecdsa-sha2-nistp256 AAAAB3NzaC1yc2EAAAADAQABAAABgQCiPp+ki6vRu8h1fymb8mIyUV0Vc8C2F2OsPnNDFvMUQQh3MST07YlbYKAgtv8oIHUFmBpV59zejUnwkQsw1rJPlOaWevFuE38Hj5pRj6CKbiNo7ErcBrkc3Tj6M2K0dmwVt9hXNECwhhnzb/xqscYxiN1LNGgEh0BXc0CVlblF3XNKpY20Ue+DdzvMXpOLYjQXEU2z0FUD6RfLw8dYF5S4OETTU4ni/4eOMw/y2sefqIj1hHBQbATKyZHdHR7Eu/inhh4Ensc9rKud3ySq3HJGqhdvT4iKBFqdopsCVes2B2ahXk05dh0Qgsf41X/TBzYPxDScijAv5PLGXYQIADH4BOymBwZK7kPHwZimFE3UrSGl2qBXhvtcxSmrUTgkYP6jIMEjfhOxs2XCbS5w7m29aTtOMnVWgIMdKYHuJ34j4lbZflhquA1o7IE6Vtk1NcbkwTxyhR2QI2wE1hXtShY6GsFi1wJBxBtXsC7bB+JaEziLeRug5um1n4q0ZSEwxv0=")
                                    (plain-file
                                     "shelley.ecdsa"
                                     "shelley,shelley.home.ryanbw.org,shelley.local ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBjmln6sNbtNTNCa89DrIyfOyJ5xfzo74jHm/XUeeKsMs3AqGW4z9gqi+zbUma7FQBKl+/io6vmaHkPOVE89xKk=")

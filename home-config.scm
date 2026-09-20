@@ -70,7 +70,7 @@
                "texinfo" "info-reader"
                ;; Fonts.
                "fontconfig" "font-aporetic"
-               ;; filesystems.
+               ;; Filesystems.
                "squashfs-tools" "squashfuse" "squashfuse-for-appimage" "fuse")))
     (services
       (append

@@ -58,6 +58,8 @@
                "gajim"
                ;; Browsers.
                "firefox"
+               ;; Documents, typesetting, and office software.
+               "graphviz" "xdot"
                ;; Programming languages, compilers, interpreters, and development tools.
                "clang" "llvm" "gcc-toolchain" "bash" "git" "diffoscope" "difftastic"
                ;; Emacs.

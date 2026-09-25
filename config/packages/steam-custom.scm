@@ -1,13 +1,15 @@
-;(define-module (steam-custom))
-(use-modules (guix gexp)
-             (guix packages)
-             ((guix licenses) #:prefix license:)
-             ((nonguix licenses) #:prefix license:)
-             (gnu packages base)
-             (gnu packages gl)
-             (nonguix utils)
-             (nonguix multiarch-container)
-             (nongnu packages game-client))
+(define-module (config packages steam-custom)
+  #:use-module (guix gexp)
+  #:use-module (guix packages)
+  #:use-module ((guix licenses) #:prefix license:)
+  #:use-module ((nonguix licenses) #:prefix license:)
+  #:use-module (gnu packages base)
+  #:use-module (gnu packages gl)
+  #:use-module (nonguix utils)
+  #:use-module (nonguix multiarch-container)
+  #:use-module (nongnu packages game-client)
+  #:export (steam-package-for-mesa-custom))
+
 (define steam-container-for-mesa (steam-container-for mesa))
 (define steam-container-for-mesa-custom
   (nonguix-container
@@ -21,8 +23,11 @@
    (packages (ngc-packages steam-container-for-mesa))
    (modules (ngc-modules steam-container-for-mesa))
    (link-files (ngc-link-files steam-container-for-mesa))
-   (preserved-env (ngc-preserved-env steam-container-for-mesa))
+   (preserved-env (cons* "^XDG_" (ngc-preserved-env steam-container-for-mesa)))
+   ;(preserved-env (ngc-preserved-env steam-container-for-mesa))
+   ;(exposed (cons* "/dev/bus/usb" "/dev/uinput" (ngc-exposed steam-container-for-mesa)))
    (exposed (ngc-exposed steam-container-for-mesa))
+   ;(shared (cons* "/dev/dri" "/dev/input" "/sys" "/var/run/dbus" "/run/dbus" "/dev/shm" "/tmp" "/run/user" "/mnt/games1" "/mnt/games2" "/mnt/games3" (ngc-shared steam-container-for-mesa)))
    (shared (cons* "/mnt/games1" "/mnt/games2" "/mnt/games3" (ngc-shared steam-container-for-mesa)))
    (home-page (ngc-home-page steam-container-for-mesa))
    (synopsis (ngc-synopsis steam-container-for-mesa))
@@ -31,6 +36,6 @@
      (package-description (@@ (nongnu packages game-client) steam-client))
      "\n\nModified to add personal external steam libraries under /mnt/games{1,2,3}."))
    (license (ngc-license steam-container-for-mesa))))
-(define steam-package-for-mesa-custom
+(define-public steam-package-for-mesa-custom
   (nonguix-container->package steam-container-for-mesa-custom))
 steam-package-for-mesa-custom

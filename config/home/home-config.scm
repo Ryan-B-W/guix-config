@@ -1,7 +1,7 @@
 ;; This is a sample Guix Home configuration which can help setup your
 ;; home directory in the same declarative manner as Guix System.
 ;; For more information, see the Home Configuration section of the manual.
-(define-module (guix-home-config)
+(define-module (config home home-config)
   #:use-module (guix gexp)
   #:use-module (gnu home)
   #:use-module (gnu home services)

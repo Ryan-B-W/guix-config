@@ -52,6 +52,8 @@
                "tigervnc-server" "tigervnc-client"
                ;; Desktop utilities.
                "pavucontrol" "flatpak" "electron" "xrandr" "arandr"
+               ;; Desktop document readers and management.
+               "zathura" "zathura-ps" "zathura-pdf-mupdf" "zathura-djvu" "zathura-cb" "calibre"
                ;; Authentication.
                "ccid" "pinentry" "passff-host" "password-store" "gnupg"
                ;; Communication.

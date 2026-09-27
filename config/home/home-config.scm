@@ -79,6 +79,7 @@
         (list
          (service home-bash-service-type
                   (home-bash-configuration
+                   (guix-defaults? #f)
                    (variables `(("HISTSIZE" . "1000000000")
                                 ("HISTFILESIZE" . "${HISTSIZE}")
                                 ("PROMPT_COMMAND" . "${PROMPT_COMMAND:+$PROMPT_COMMAND$'\\n'}history -a; history -c; history -r")

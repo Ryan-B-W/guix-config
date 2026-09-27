@@ -81,7 +81,7 @@
                   (home-bash-configuration
                    (variables `(("HISTSIZE" . "1000000000")
                                 ("HISTFILESIZE" . "${HISTSIZE}")
-                                ("PROMPT_COMMAND" . "${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r")
+                                ("PROMPT_COMMAND" . "${PROMPT_COMMAND:+$PROMPT_COMMAND$'\\n'}history -a; history -c; history -r")
                                 ("BASHOPTS" . ,(string-append "checkwinsize:"
                                                               "cmdhist:"
                                                               "complete_fullquote:"

@@ -82,24 +82,10 @@
                    (variables `(("HISTSIZE" . "1000000000")
                                 ("HISTFILESIZE" . "${HISTSIZE}")
                                 ("PROMPT_COMMAND" . "${PROMPT_COMMAND:+$PROMPT_COMMAND$'\\n'}history -a; history -c; history -r")
-                                ("BASHOPTS" . ,(string-append "checkwinsize:"
-                                                              "cmdhist:"
-                                                              "complete_fullquote:"
-                                                              "expand_aliases:"
-                                                              "extglob:"
-                                                              "extquote:"
-                                                              "force_fignore:"
-                                                              "globasciiranges:"
-                                                              "globskipdots:"
-                                                              "interactive_comments:"
-                                                              "login_shell:"
-                                                              "patsub_replacement:"
-                                                              "progcomp:"
-                                                              "promptvars:"
-                                                              "sourcepath:"
-                                                              "histappend:"
-                                                              "no_empty_cmd_completion"))
                                 ("HISTCONTROL" . "ignorespace")))
+                   (bashrc (list (plain-file
+                                  "bashrc-shopts.sh"
+                                  "shopt -s histappend\nshopt -s no_empty_cmd_completion")))
                    (aliases '(("grep" . "grep --color=auto")
                               ("ip" . "ip -color=auto")
                               ("ll" . "ls -l")

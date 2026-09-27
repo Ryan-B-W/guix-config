@@ -132,6 +132,8 @@
                      config => (sysctl-configuration
                                 (settings (cons* '("kernel.pid_max" . "257256")
                                                  '("vm.swappiness" . "0")
+                                                 ;; For compatibility with games and other software that requires large amounts of mapped memory.
+                                                 '("vm.max_map_count" . "1048576")
                                                  %default-sysctl-settings))))
                     (delete gdm-service-type)
                     (delete pulseaudio-service-type)

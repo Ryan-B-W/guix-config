@@ -1,0 +1,14 @@
+* About
+A personal [[https://guix.gnu.org/][Guix System]] configuration with a modular design for use on multiple machines and by---theoretically, at least---multiple users.
+* Repository Layout
+The configuration exists almost exclusively under =./config=, with only a few vestigial files at the project root.  Each file is almost exclusively a Guile module that is either used directly or used by another module in this repository.  =./config= is further split into =hosts/=, =home/=, and =packages/= which house configurations for hosts (machines, generally), per user Guix Home in dedicated directories, and custom packages respectively.
+* Usage
+To deploy a system, a command like the following is used---assuming the repository is cloned into the active users home direcotry:
+#+begin_src sh
+  sudo guix system -L ~/guix-config reconfigure ~/guix-config/config/hosts/asimov.scm
+#+end_src
+
+to deploy a user's Guix Home, the following is used---with the same assumptions:
+#+begin_src sh
+  guix home -L ~/guix-config reconfigure ~/guix-config/config/home/brody/asimov.scm
+#+end_src

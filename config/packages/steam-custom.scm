@@ -38,4 +38,3 @@
    (license (ngc-license steam-container-for-mesa))))
 (define-public steam-package-for-mesa-custom
   (nonguix-container->package steam-container-for-mesa-custom))
-steam-package-for-mesa-custom

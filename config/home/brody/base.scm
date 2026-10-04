@@ -57,7 +57,7 @@
     ;; Desktop document readers and management.
     "zathura" "zathura-ps" "zathura-pdf-mupdf" "zathura-djvu" "zathura-cb" "calibre"
     ;; Authentication.
-    "ccid" "pinentry" "passff-host" "password-store" "gnupg"
+    "ccid" "pinentry" "passff-host" "password-store" "pass-otp" "gnupg"
     ;; Communication.
     "gajim"
     ;; Browsers.
